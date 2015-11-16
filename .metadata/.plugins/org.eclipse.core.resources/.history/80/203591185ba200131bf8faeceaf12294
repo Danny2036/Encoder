@@ -1,0 +1,26 @@
+import java.util.*;
+import java.io.*;
+public class Encoder {
+
+ String file;
+
+ public Map<Character, Integer> toData(String filename) throws IOException{
+  BufferedReader reader = new BufferedReader(new FileReader(filename));
+  String currentLine = reader.readLine();
+  Map<Character, Integer> list = new HashMap<Character, Integer>();
+
+  while(currentLine != null){
+   char[] charArray = currentLine.toCharArray();
+   for(int i = 0; i < charArray.length; i++){
+    if(list.containsKey(charArray[i])){
+     list.put(charArray[i], list.get(charArray[i])+1);
+    } else {
+     list.put(charArray[i], 1);
+    }
+   }
+   currentLine = reader.readLine();
+  }
+  reader.close();
+  return list;
+ }
+}

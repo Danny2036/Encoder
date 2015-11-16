@@ -1,0 +1,50 @@
+
+public class HuffmanTree implements Comparable<HuffmanTree>{
+  protected HuffmanTreeNode left;
+  protected HuffmanTreeNode right;
+  protected HuffmanTreeNode parent;
+  protected int freq;
+  
+  
+  public HuffmanTree(){}
+  
+  public HuffmanTree(HuffmanTreeNode y){
+    this.parent = y;
+  }
+  
+  public void setLeft(HuffmanTreeNode x){
+    this.left = x;
+  }
+  
+  public void setRight(HuffmanTreeNode x){
+    this.right = x;
+  }
+  
+  public void setParent(HuffmanTreeNode x){
+    this.parent = x;
+  }
+  
+  public void setFrequency(int x){
+     this.freq = x;
+   }
+  
+  public HuffmanTreeNode getRight(){
+    return this.right;
+  }
+  
+  public HuffmanTreeNode getLeft(){
+    return this.left;
+  }
+  
+  public HuffmanTreeNode getParent(){
+    return this.parent;
+  }
+  
+  public int getFrequency(){
+     return this.freq;
+   }
+  
+  public void mergeWithLeftSibling(HuffmanTree array){
+    
+  }
+}

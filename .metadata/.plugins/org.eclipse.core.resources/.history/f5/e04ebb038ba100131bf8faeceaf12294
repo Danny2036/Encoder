@@ -1,0 +1,26 @@
+public class HuffmanTreeNode extends HuffmanTree{ 
+  protected Character letter;
+  protected int freq;
+  
+  public HuffmanTreeNode(Character x, int z){
+    this.letter = x;
+    this.freq = z;
+  }
+  
+  public void setLetter(Character x){
+    this.letter = x;
+  }
+  
+  public void setFrequency(int x){
+    this.freq = x;
+  }
+  
+  public int getFrequency(){
+    return this.freq;
+  }
+  
+  public Character getCharacter(){
+    return this.letter;
+  }
+}
+

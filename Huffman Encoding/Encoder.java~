@@ -1,0 +1,51 @@
+import java.util.*;
+import java.io.*;
+public class Encoder {
+
+	String file;
+
+	/*
+	 * @param String filename
+	 * @return map of the characters in the text file and the frequency
+	 */
+	public Map<Character, Integer> toMap(String filename) throws IOException{
+		BufferedReader reader = new BufferedReader(new FileReader(filename));
+		String currentLine = reader.readLine();
+		Map<Character, Integer> list = new HashMap<Character, Integer>();
+
+		while(currentLine != null){
+			char[] charArray = currentLine.toCharArray();
+			for(int i = 0; i < charArray.length; i++){
+				if(list.containsKey(charArray[i])){
+					list.put(charArray[i], list.get(charArray[i])+1);
+				} else {
+					list.put(charArray[i], 1);
+				}
+			}
+			currentLine = reader.readLine();
+		}
+		reader.close();
+		return list;
+	}
+
+	public ArrayList<HuffmanTree> makeArray(Map<Character,Integer> map){
+		Object[] keyArray = map.keySet().toArray();
+		ArrayList<HuffmanTree> list = new ArrayList<HuffmanTree>();
+		for(int i = 0; i < map.size(); i++){
+			list.add(new HuffmanTree(new HuffmanTreeNode((Character)keyArray[i],(map.get(keyArray[i]).intValue()))));
+		}
+		Collections.sort(list);
+		return list;
+	}
+
+	public HuffmanTree buildTree(ArrayList<HuffmanTree> list){
+		while(list.size() > 1){
+			list.get(0).mergeWithLeftSibling(list.get(1));
+			list.add(0,(list.get(0).getNode().getParent()));
+			list.remove(1);
+			list.remove(2);
+			Collections.sort(list);
+			}
+		return list.get(0);
+	}
+}

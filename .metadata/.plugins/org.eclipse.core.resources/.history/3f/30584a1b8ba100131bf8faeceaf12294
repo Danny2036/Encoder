@@ -1,0 +1,42 @@
+
+public class HuffmanTree {
+  protected HuffmanTreeNode left;
+  protected HuffmanTreeNode right;
+  protected HuffmanTreeNode parent;
+  protected int freq;
+  
+  
+  public HuffmanTree(){}
+  
+  public HuffmanTree(HuffmanTreeNode y){
+    this.parent = y;
+  }
+  
+  public void setLeft(HuffmanTreeNode x){
+    this.left = x;
+  }
+  
+  public void setRight(HuffmanTreeNode x){
+    this.right = x;
+  }
+  
+  public void setParent(HuffmanTreeNode x){
+    this.parent = x;
+  }
+  
+  public HuffmanTreeNode getRight(){
+    return this.right;
+  }
+  
+  public HuffmanTreeNode getLeft(){
+    return this.left;
+  }
+  
+    public HuffmanTreeNode getParent(){
+    return this.parent;
+  }
+  
+  public void mergeWithLeftSibling(HuffmanTree array){
+    
+  }
+}
